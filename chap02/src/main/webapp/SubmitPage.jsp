@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 
-<script type="text/javascript">
-	function okTest(){
-		
-	}
-
-</script>
 
 <body>
 	<form action="SubmitServlet" method="get">     <!-- 전체 : 공백 체크 -->

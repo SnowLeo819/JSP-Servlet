@@ -1,0 +1,38 @@
+#popup {
+  position: absolute;
+  width: 400px;
+  border-radius: 10px;
+  background-color: #fff;
+  left: 200px;
+  top: 200px;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  .contents {
+    padding: 20px;
+  }
+  h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 1.5;
+  }
+  .btns {
+    display: flex;
+    .btn {
+      width: 50%;
+      border: none;
+      background: none;
+      padding: 20px 0;
+      background-color: #111;
+      color: #fff;
+      &.btnOneday {
+        background-color: rgb(3, 125, 206);
+      }
+    }
+  }
+}
+h1 {
+  font-size: 48px;
+}
