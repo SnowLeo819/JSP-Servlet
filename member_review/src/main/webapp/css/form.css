@@ -18,9 +18,9 @@
 
 .form table input[type="text"].short, .form table input[type="password"].short, .form table input[type="number"].short, .form table select.short, .tableBox table input[type="text"].short, .tableBox table input[type="password"].short, .tableBox table input[type="number"].short, .tableBox table select.short { width: 200px; }
 
-.form table button, .form table .sticker, .tableBox table button, .tableBox table .sticker { height: 40px; padding: 0 10px; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #111; border: 1px solid #d9d9d9; color: #fff; border-radius: 5px; min-width: 80px; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-left: 10px; font-size: 12px; }
+.form table textarea:not(#summernote) button, .form table textarea:not(#summernote) .sticker, .tableBox table textarea:not(#summernote) button, .tableBox table textarea:not(#summernote) .sticker { height: 40px; padding: 0 10px; -webkit-box-sizing: border-box; box-sizing: border-box; background-color: #111; border: 1px solid #d9d9d9; color: #fff; border-radius: 5px; min-width: 80px; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin-left: 10px; font-size: 12px; }
 
-.form table button.Duplicate, .form table .sticker.Duplicate, .tableBox table button.Duplicate, .tableBox table .sticker.Duplicate { background-color: #037dce; }
+.form table textarea:not(#summernote) button.Duplicate, .form table textarea:not(#summernote) .sticker.Duplicate, .tableBox table textarea:not(#summernote) button.Duplicate, .tableBox table textarea:not(#summernote) .sticker.Duplicate { background-color: #037dce; }
 
 .form table .addrBox, .tableBox table .addrBox { margin: 5px 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 

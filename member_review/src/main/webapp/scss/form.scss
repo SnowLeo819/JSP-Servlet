@@ -55,8 +55,9 @@
         width: 200px;
       }
     }
-    button,
-    .sticker {
+
+    textarea:not(#summernote) button,
+    textarea:not(#summernote) .sticker {
       height: 40px;
       padding: 0 10px;
       box-sizing: border-box;
