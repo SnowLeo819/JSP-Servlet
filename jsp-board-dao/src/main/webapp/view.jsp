@@ -1,24 +1,14 @@
-<%@page import="com.jjang051.model.BoardDto"%>
-<%@page import="com.jjang051.model.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-
-	int no = Integer.parseInt(request.getParameter("no"));	
-	BoardDao boardDao = new BoardDao();
-	BoardDto boardDto = boardDao.getSelectOne(no); // hit에  증가와 나머지 컬럼에 값을 다 뽑아서 BoardDto
-	request.setAttribute("boardDto", boardDto);// boardDto  컨테이너 역할(매개변수를 너무 많이 쓰면 오타, 빠트릴 경우가 생기니까)
- %>
 
 <%@ include file="./include/header.jsp"  %>
-
 
     <main>
       <div class="inner">
 	      <h2 class="subTitle">VIEW</h2>
 		  <div id="contents">
 		  	<!-- 데이터 받아서 처리하기....forward방식으로 데이터 보여주기....  -->
-		  	<form method="POST" action="write_process.jsp" id="join" class="form">
+		  	<div class="form">
 		  		<table>
 		  			<colgroup>
 		  				<col style="width:10%">
@@ -52,11 +42,13 @@
 		  				</tr>
 		  			</tbody>
 		  		</table>
-		  		<div class="btns">
-		  			<button type="submit" class="btn btnConfirm">글쓰기</button>
-		  			<button type="reset" class="btn btnCancel">취소</button>
-		  		</div>
-		  	</form>
+				<div class="btns">
+					<a href="Write.do" class="btn btnConfirm">새글쓰기</a> 
+					<a href="List.do" class="btn btnConfirm">글목록</a> 
+					<a href="Update.do?no=${param.no }" class="btn btnConfirm">수정</a> 
+					<a href="Delete.do?no=${param.no }" class="btn btnConfirm">삭제</a> 
+				</div>
+		  	</div>
 		  </div>      	
 	  </div>
     </main>

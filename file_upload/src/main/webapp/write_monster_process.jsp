@@ -1,8 +1,8 @@
-<%@page import="com.jjang051.model.MonsterDto"%>
-<%@page import="com.jjang051.model.MonsterDao"%>
+<%@page import="com.TISpjh.model.MonsterDto"%>
+<%@page import="com.TISpjh.model.MonsterDao"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
-<%@page import="com.jjang051.util.ScriptWriter"%>
+<%@page import="com.TISpjh.util.ScriptWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

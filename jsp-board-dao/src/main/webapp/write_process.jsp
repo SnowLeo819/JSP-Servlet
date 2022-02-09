@@ -1,6 +1,6 @@
-<%@page import="com.jjang051.util.ScriptWriter"%>
-<%@page import="com.jjang051.model.BoardDao"%>
-<%@page import="com.jjang051.model.BoardDto"%>
+<%@page import="com.TISpjh.util.ScriptWriter"%>
+<%@page import="com.TISpjh.model.BoardDao"%>
+<%@page import="com.TISpjh.model.BoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

@@ -1,5 +1,5 @@
 <%@page import="java.sql.ResultSet"%>
-<%@page import="com.jjang051.util.ScriptWriter"%>
+<%@page import="com.TISpjh.util.ScriptWriter"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.jjang051.jdbc.JDBCConnection"%>

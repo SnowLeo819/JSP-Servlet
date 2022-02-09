@@ -1,5 +1,5 @@
-<%@page import="com.jjang051.model.MonsterDto"%>
-<%@page import="com.jjang051.model.MonsterDao"%>
+<%@page import="com.TISpjh.model.MonsterDto"%>
+<%@page import="com.TISpjh.model.MonsterDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

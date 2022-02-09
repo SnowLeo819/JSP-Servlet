@@ -1,4 +1,4 @@
-<%@page import="com.jjang051.util.ScriptWriter"%>
+<%@page import="com.TISpjh.util.ScriptWriter"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.jjang051.jdbc.JDBCConnection"%>

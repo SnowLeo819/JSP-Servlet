@@ -110,15 +110,58 @@ public class BoardDao {
 				boardDto.setRegDate(rs.getString("regdate"));
 				boardDto.setHit(rs.getInt("hit"));
 				
-				
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return boardDto;
+	}
+	
+	public int deleteBoard(BoardDto boardDto) {
+		int result = 0;
+		
+		try {
+			getConnection();
+			String sql = "DELETE FROM BOARD WHERE NO = ? AND PASSWORD = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardDto.getNo());        // boardDto..?
+			pstmt.setString(2, boardDto.getPassword());
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		close();
+		return result;
+	}
+	
+	public int updateBoard(BoardDto boardDto) {
+		int result = 0;
+		
+		
+		try {
+			getConnection();
+			String sql = "UPDATE BOARD SET NAME = ?, SUBJECT = ?, EMAIL = ?, CONTENTS = ? WHERE NO = ? AND PASSWORD = ?"; 
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, boardDto.getName());
+			pstmt.setString(2, boardDto.getSubject());
+			pstmt.setString(3, boardDto.getEmail());
+//			pstmt.setString(4, boardDto.getPassword());
+			pstmt.setString(4, boardDto.getContents());
+			
+			pstmt.setInt(5, boardDto.getNo());
+			pstmt.setString(6, boardDto.getPassword());
+			result = pstmt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
-		return boardDto;
+		return result;
 	}
 }
 

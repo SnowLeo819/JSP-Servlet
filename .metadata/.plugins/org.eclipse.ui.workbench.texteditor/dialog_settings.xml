@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="monster"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="false"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="inde"/>
+			<item value="session"/>
+			<item value="send"/>
 			<item value="mario"/>
 			<item value="Mario"/>
 			<item value="title"/>
@@ -20,8 +23,6 @@
 			<item value="system."/>
 			<item value="login"/>
 			<item value="pro"/>
-			<item value="8080"/>
-			<item value="8090"/>
 		</list>
 		<list key="replacehistory">
 			<item value="monster"/>

@@ -1,17 +1,8 @@
-<%@page import="com.jjang051.model.BoardDto"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.sql.Array"%>
-<%@page import="com.jjang051.model.BoardDao"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="./include/header.jsp" %>
-<%
 
-	BoardDao boardDao = new BoardDao();
-	ArrayList<BoardDto> boardList = boardDao.showAllBoard();
-	request.setAttribute("boardList", boardList);
-%>
 <main>
 	<div class="inner">
 		<h2 class="subTitle">BOARD LIST</h2>
@@ -41,7 +32,7 @@
 						<tr>
 							<td>${boardDto.no }</td>
 							<td>${boardDto.name }</td>
-							<td><a href="./view.jsp?no=${boardDto.no }">${boardDto.subject }</a></td>
+							<td><a href="View.do?no=${boardDto.no }">${boardDto.subject }</a></td>
 							<td>${boardDto.email }</td>
 							<td>${boardDto.regDate }</td>
 							<td>${boardDto.hit }</td>
@@ -50,7 +41,7 @@
 					</tbody>
 				</table>
 				<div class="btns">
-					<a href="./write.jsp" class="btn btnConfirm">글쓰기</a>
+					<a href="Write.do" class="btn btnConfirm">글쓰기</a>
 				</div>
 			</div>
 		</div>

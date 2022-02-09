@@ -38,7 +38,7 @@
 						<li><a href="./login.jsp">로그인${loggedId }</a></li>
 						<li><a href="./join.jsp">회원가입</a></li>
 						<li><a href="./list.jsp">회원관리</a></li>
-						<li><a href="./list.jsp">게시판</a></li>
+						<li><a href="List.do">게시판</a></li>
 					</ul>
 					</c:when>
 					<c:otherwise>
