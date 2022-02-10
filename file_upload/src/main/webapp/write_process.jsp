@@ -1,8 +1,8 @@
-<%@page import="com.jjang051.model.MarioDto"%>
-<%@page import="com.jjang051.model.MarioDao"%>
+<%@page import="com.TISpjh.model.MarioDto"%>
+<%@page import="com.TISpjh.model.MarioDao"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
-<%@page import="com.jjang051.util.ScriptWriter"%>
+<%@page import="com.TISpjh.util.ScriptWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

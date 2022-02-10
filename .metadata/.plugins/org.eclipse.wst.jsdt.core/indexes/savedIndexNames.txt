@@ -1,18 +1,6 @@
 INDEX VERSION 1.4+C:\Users\jhpak\OneDrive\Desktop\JSP&Servlet_study\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2663481984.index
-2393138688.index
-2257166510.index
-3716724480.index
-2578204313.index
-130601786.index
-2395915977.index
-1792499002.index
-1296316425.index
-3922113046.index
-63540282.index
+2702550938.index
 1058407819.index
-992806045.index
-3091138406.index
-918193464.index
-2007115701.index
-10819363.index
+2949937403.index
+1094612404.index
+896198421.index

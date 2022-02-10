@@ -1,7 +1,6 @@
 html { font-size: 10px; }
 
-body { font-family: "Roboto","Noto Sans KR"; font-size: 1.6rem; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, 0, transparent 5%) #333; 
-overflow: hidden !important; }
+body { font-family: "Roboto","Noto Sans KR"; font-size: 1.6rem; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05) 1px, 0, transparent 5%) #333; overflow: hidden !important; }
 
 #header { position: fixed; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; background-color: #fff; z-index: 2; }
 
