@@ -152,11 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-<<<<<<< HEAD
-      <Context docBase="C:\Users\jhpak\OneDrive\Desktop\JSP&amp;Servlet_study\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\jhpak\OneDrive\Desktop\JSP&amp;Servlet_study\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp-jsp-clock" path="/clock" reloadable="true" source="org.eclipse.jst.jee.server:jsp-jsp-clock"/><Context docBase="C:\Users\jhpak\OneDrive\Desktop\JSP&amp;Servlet_study\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\prugio_model2" path="/prugio_model2" reloadable="true" source="org.eclipse.jst.jee.server:prugio_model2"/></Host>
-=======
-      <Context docBase="C:\Users\USER\Desktop\JSP-PJH\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\USER\Desktop\JSP-PJH\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\member_dao_model2" path="/member_dao_model2" reloadable="true" source="org.eclipse.jst.jee.server:member_dao_model2"/></Host>
->>>>>>> 9fdbedca618685e33e789e11fb94cacac1f454e2
+      <Context docBase="C:\Users\USER\Desktop\JSP-PJH\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\USER\Desktop\JSP-PJH\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\member_dao_add_board" path="/member_dao_model2" reloadable="true" source="org.eclipse.jst.jee.server:member_dao_add_board"/></Host>
     </Engine>
   </Service>
 </Server>

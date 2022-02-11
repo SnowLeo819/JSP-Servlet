@@ -18,24 +18,24 @@
 					<tbody>
 						<tr>
 							<th>NAME</th>
-							<td>${replyBoardDto.name }</td>
+							<td class="left">${replyBoardDto.name }</td>
 							<th>HIT</th>
-							<td>${replyBoardDto.hit }</td>
+							<td class="left">${replyBoardDto.hit }</td>
 						</tr>
 						<tr>
 							<th>EMAIL</th>
-							<td>${replyBoardDto.email }</td>
+							<td class="left">${replyBoardDto.email }</td>
 							<th>DATE</th>
-							<td>${replyBoardDto.regDate }</td>
+							<td class="left">${replyBoardDto.regDate }</td>
 
 						</tr>
 						<tr>
 							<th>SUBJECT</th>
-							<td colspan="3">${replyBoardDto.subject }</td>
+							<td colspan="3" class="left">${replyBoardDto.subject }</td>
 						</tr>
 						<tr>
 							<th>CONTENTS</th>
-							<td colspan="3">${replyBoardDto.contents }</td>
+							<td colspan="3" class="left">${replyBoardDto.contents }</td>
 						</tr>
 					</tbody>
 				</table>
