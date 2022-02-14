@@ -39,6 +39,18 @@
 						</tr>
 					</tbody>
 				</table>
+				<!-- 다음글 이전글 -->
+				<div class="prevAndNext">
+					<div class="item">
+						<span class="inner">prev</span>
+						<a href="이전 글 링크">이전 글 제목</a>
+					</div>
+					<div class="item">
+						<span class="inner">prev</span>
+						<a href="다음 글 링크">다음 글 제목</a>
+					</div>
+				</div>
+				
 				<div class="btns">
 					<a href="Write.do" class="btn btnConfirm">새글쓰기</a> <a
 						href="ReplyWrite.do?no=${replyBoardDto.no }&reGroup=${replyBoardDto.reGroup}&reLevel=${replyBoardDto.reLevel}&reStep=${replyBoardDto.reStep}"

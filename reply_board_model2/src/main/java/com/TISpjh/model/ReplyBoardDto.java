@@ -11,6 +11,7 @@ public class ReplyBoardDto {
 	private int reLevel;
 	private int reStep;
 	private int hit;
+	private int num;
 	private String contents;
 	
 	public ReplyBoardDto() {
@@ -19,7 +20,7 @@ public class ReplyBoardDto {
 	}
 
 	public ReplyBoardDto(int no, String subject, String name, String email, String password, String regDate,
-			int reGroup, int reLevel, int reStep, int hit, String contents) {
+			int reGroup, int reLevel, int reStep, int hit, int num, String contents) {
 		super();
 		this.no = no;
 		this.subject = subject;
@@ -31,6 +32,7 @@ public class ReplyBoardDto {
 		this.reLevel = reLevel;
 		this.reStep = reStep;
 		this.hit = hit;
+		this.num = num;
 		this.contents = contents;
 	}
 
@@ -114,6 +116,14 @@ public class ReplyBoardDto {
 		this.hit = hit;
 	}
 
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
 	public String getContents() {
 		return contents;
 	}
@@ -126,7 +136,7 @@ public class ReplyBoardDto {
 	public String toString() {
 		return "ReplyBoardDto [no=" + no + ", subject=" + subject + ", name=" + name + ", email=" + email
 				+ ", password=" + password + ", regDate=" + regDate + ", reGroup=" + reGroup + ", reLevel=" + reLevel
-				+ ", reStep=" + reStep + ", hit=" + hit + ", contents=" + contents + "]";
+				+ ", reStep=" + reStep + ", hit=" + hit + ", num=" + num + ", contents=" + contents + "]";
 	}
 	
 	

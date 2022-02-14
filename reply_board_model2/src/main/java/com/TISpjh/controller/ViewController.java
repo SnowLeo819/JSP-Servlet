@@ -27,6 +27,13 @@ public class ViewController extends HttpServlet {
 		ReplyBoardDto replyBoardDto = replyBoardDao.getSelectOne(no);
 		request.setAttribute("replyBoardDto", replyBoardDto);
 		
+		// 이전 글 보기
+		// no는 seq 이기 때문에 다음글 이전글 연결이 안됨..
+		// rownum. 을 이용해서 연결
+		ReplyBoardDto prevReplyBoardDto = null;
+		prevReplyBoardDto = ReplyBoardDao.getprevSelect(num);
+		
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view.jsp");
 		dispatcher.forward(request, response);
 	}

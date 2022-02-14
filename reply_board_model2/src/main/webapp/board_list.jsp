@@ -38,7 +38,7 @@
 								<td class="space${boardDto.reStep } left"><c:if
 										test="${boardDto.reStep > 1 }">
 										<span class="material-icons">subdirectory_arrow_right</span>
-									</c:if> <a href="View.do?no=${boardDto.no }">${boardDto.subject }</a>
+									</c:if> <a href="View.do?no=${boardDto.no }&num=${boardDto.num}">${boardDto.subject }</a>
 								</td>
 								<td>${boardDto.email }</td>
 								<td>${boardDto.regDate }</td>

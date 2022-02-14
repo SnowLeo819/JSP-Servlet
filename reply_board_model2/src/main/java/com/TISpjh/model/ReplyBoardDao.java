@@ -313,26 +313,24 @@ public class ReplyBoardDao {
 //			// java 는 autocommit 값 true 가 기본
 //			conn.setAutoCommit(false);	
 //			
-//			// level 추가 (이전글 밀어내기)
-//			String levelAddSql = "UPDATE REPLY_BOARD SET RELEVEL = RELEVEL + 1 WHERE REGROUP = ? AND RELEVEL > ?";
-//			pstmt = conn.prepareStatement(levelAddSql);
-//			pstmt.setInt(1, reGroup);
-//			pstmt.setInt(2, reLevel);
-//			result = pstmt.executeUpdate();
+////			// level 추가 (이전글 밀어내기)
+////			String levelAddSql = "UPDATE REPLY_BOARD SET RELEVEL = RELEVEL + 1 WHERE REGROUP = ? AND RELEVEL > ?";
+////			pstmt = conn.prepareStatement(levelAddSql);
+////			pstmt.setInt(1, reGroup);
+////			pstmt.setInt(2, reLevel);
+////			result = pstmt.executeUpdate();
 //			
 //			// 답글 입력하기
-//			String sql = "INSERT INTO REPLY_BOARD VALUES (SEQ_REPLYBOARD.NEXTVAL, ?, ?, ?, ?, SYSDATE, ?, ?, ? , 0, ?)";
-//			//(SEQ_REPLYBOARD.NEXTVAL, ?, ?, ?, ?, SYSDATE, ?, ?, ? , 0, ?)
+//			String sql = "UPDATE REPLY_BOARD SET (SEQ_REPLYBOARD.NEXTVAL, ?, ?, ?, ?, SYSDATE, ?, ?, ? , 0, ?)";
+//			//SUBJECT = ?, NAME= ?, EMAIL = ?, CONTENTS =?  WHERE NO = ? AND PASSWORD = ?)
 //			
 //			pstmt = conn.prepareStatement(sql);
 //			pstmt.setString(1, replyBoardDto.getSubject());
 //			pstmt.setString(2, replyBoardDto.getName());
 //			pstmt.setString(3, replyBoardDto.getEmail());
-//			pstmt.setString(4, replyBoardDto.getPassword());
-//			pstmt.setInt(5, reGroup);
-//			pstmt.setInt(6, reLevel + 1);
-//			pstmt.setInt(7, reStep + 1);
-//			pstmt.setString(8, replyBoardDto.getContents());
+//			pstmt.setString(4, replyBoardDto.getContents());
+//			pstmt.setInt(5, replyBoardDto.getNo());
+//			pstmt.setString(6, replyBoardDto.getPassword());
 //			result = pstmt.executeUpdate();
 //
 //			conn.setAutoCommit(true);	
@@ -346,5 +344,41 @@ public class ReplyBoardDao {
 //		return result;
 //	}
 //	
+	// 이전글 
+	public ReplyBoardDto getprevSelect(int num) {
+		ReplyBoardDto replyBoardDto = new ReplyBoardDto();
+		
+		try {
+			getConnection();
+			String sql = "SELECT * FROM"
+					+ "(SELECT ROWNUM AS NUM, B.* FROM"
+					+ "(SELECT * FORM REPLY_BOARD ORDER BY REGROUP DESC, RElEVEL ASC) B)"
+					+ "WHERE NUM = ? -1";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				replyBoardDto.setNo(rs.getInt("no"));
+				replyBoardDto.setSubject(rs.getString("subject"));
+				replyBoardDto.setName(rs.getString("name"));
+				replyBoardDto.setEmail(rs.getString("email"));
+				replyBoardDto.setPassword(rs.getString("password"));
+				replyBoardDto.setContents(rs.getString("contents"));
+				replyBoardDto.setRegDate(rs.getString("regDate"));
+				replyBoardDto.setReGroup(rs.getInt("reGroup"));
+				replyBoardDto.setReStep(rs.getInt("reStep"));
+				replyBoardDto.setReLevel(rs.getInt("reLevel"));
+				replyBoardDto.setHit(rs.getInt("hit"));
+				replyBoardDto.setNum(rs.getInt("num"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		close();
+		return replyBoardDto;
+	}
 	
 }
