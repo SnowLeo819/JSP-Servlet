@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pjh.mybatis.board">
+
+	<insert id="insertBoard" parameterType="BoardDto">
+		INSERT INTO REPLY_BOARD
+		VALUES (SEQ_REPLYBOARD.NEXTVAL,
+		#{subject},
+		#{name},
+		#{email},
+		#{password},
+		SYSDATE,
+		#{reGroup},
+		#{reStep},
+		#{reLevel},
+		0,
+		#{contents},
+		#{id}
+		)
+	</insert>
+
+	<select id="getAllList" resultType="BoardDto"
+		parameterType="HashMap">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM REPLY_BOARD ORDER BY REGROUP DESC, RELEVEL ASC) B
+		)
+		WHERE NUM <![CDATA[>=]]>
+		#{start} AND NUM <![CDATA[<=]]>
+		#{end}
+		<!-- WHERE NUM BETWEEN #{start} AND #{end} -->
+	</select>
+
+	<!-- 마이바티스에서 컬럼명을 변수로 받아야 할때는 $을 쓴다. #{abc} 'abc' ${abc} abc -->
+	<select id="getSearchAllList" resultType="BoardDto"
+		parameterType="HashMap">
+		SELECT * FROM REPLY_BOARD WHERE ${searchSelect} LIKE '%'
+		|| #{searchWord} || '%' ORDER BY REGROUP DESC, RELEVEL ASC
+	</select>
+
+	<select id="getSelectOne" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM REPLY_BOARD WHERE NO = #{no}
+	</select>
+
+	<update id="updateHit" parameterType="Integer">
+		UPDATE REPLY_BOARD SET HIT
+		= HIT + 1 WHERE NO = #{no}
+	</update>
+
+	<select id="getNextBoard" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM REPLY_BOARD ORDER BY REGROUP DESC, RELEVEL ASC) B )
+		WHERE NUM = #{num} + 1
+	</select>
+
+	<select id="getPrevBoard" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM REPLY_BOARD ORDER BY REGROUP DESC, RELEVEL ASC) B )
+		WHERE NUM = #{num} - 1
+	</select>
+
+	<select id="getMaxReGroup" resultType="Integer">
+		SELECT NVL(MAX(REGROUP),1)
+		AS REGROUPMAX FROM REPLY_BOARD
+	</select>
+
+
+	<select id="getTotal" resultType="Integer">
+		SELECT COUNT(*) AS TOTAL FROM
+		REPLY_BOARD
+	</select>
+
+	<!-- 마이바티스에서 컬럼명을 변수로 받아야 할 때는 $를 사용한다 #{abc} -> 'abc' // ${abc} -> abc -->
+
+</mapper>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.TISpjh.mybatis.board">
+
+	<!-- 전체리스트 -->
+	<select id="getAllList" resultType="BoardDto"
+		parameterType="HashMap">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM REPLY_BOARD
+		<if test="searchWord!=null and searchWord!='' ">
+			WHERE ${searchSelect} LIKE '%'||#{searchWord}||'%'
+		</if>
+		ORDER BY REGROUP DESC, RELEVEL ASC) B
+		)
+		WHERE NUM BETWEEN #{start} AND
+		#{end}
+	</select>
+
+	<!-- 글 가져오기 1개 -->
+	<select id="getSelectOneBoard" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM REPLY_BOARD WHERE NO = #{no}
+	</select>
+
+	<!-- 단일항목 삭제 -->
+	<delete id="deleteBoard" parameterType="BoardDto">
+		DELETE FROM REPLY_BOARD
+		WHERE NO = #{no} AND PASSWORD = #{password}
+	</delete>
+
+	<!-- 묶음항목 삭제 -->
+	<delete id="allDeleteBoard" parameterType="Integer">
+		DELETE FROM
+		REPLY_BOARD WHERE NO = #{no}
+	</delete>
+
+	<!-- 글수정 -->
+	<update id="updateBoard" parameterType="BoardDto">
+		UPDATE REPLY_BOARD SET
+		SUBJECT = #{subject}, EMAIL = #{email}, CONTENTS = #{contents} WHERE
+		NO = #{no} AND PASSWORD = #{password}
+	</update>
+
+	<!-- 전체 글수 -->
+	<select id="getTotal" resultType="Integer"
+		parameterType="HashMap">
+		SELECT COUNT(*) AS TOTAL FROM
+		REPLY_BOARD
+		<if test="searchWord!=null and searchWord!='' ">
+			WHERE ${searchSelect} LIKE '%'||#{searchWord}||'%'
+		</if>
+	</select>
+
+	<!-- 앞뒤 글 내용 가져오기 -->
+	<select id="getNextSelect" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM
+		REPLY_BOARD ORDER BY REGROUP DESC, RELEVEL ASC) B )
+		WHERE NUM = #{num} + 1
+	</select>
+
+	<select id="getPrevSelect" parameterType="Integer"
+		resultType="BoardDto">
+		SELECT * FROM
+		(SELECT ROWNUM AS NUM,B.* FROM
+		(SELECT * FROM
+		REPLY_BOARD ORDER BY REGROUP DESC, RELEVEL ASC) B )
+		WHERE NUM = #{num} - 1
+	</select>
+
+	<!-- 여기에 select / insert / delete / update -->
+	<!-- 변수 이름, 결과값 이름이 아니라 타입을 지정하는 것.. 주의하기... -->
+	<!-- <select id="" resultType="com.pjh.mode.MemberDto" parameterType=""></select> -->
+	<!-- <insert id="" parameterType=""></insert> -->
+	<!-- <delete id="" parameterType=""></delete> -->
+	<!-- <update id="" parameterType=""></update> -->
+
+</mapper>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pjh.mybatis.member">
+
+	<!-- 전체 -->
+	<select id="getMemberList" resultType="MemberDto">
+		SELECT * FROM MEMBER
+	</select>
+
+	<!-- <select id="getMemberList" resultType="MemberDto"> -->
+	<!-- SELECT * FROM MEMBER -->
+	<!-- ORDER -->
+	<!-- BY NO DESC -->
+	<!-- </select> -->
+	<!-- 원래는 resultType에 class 전체 경로를 써야 하는데 com.jjang051.model.MemberDto 번거러운 
+		경우 TypeAlias를 통해 경로를 축약해서 쓸 수 있다. mybatis를 사용하는 이유는 sql 개발 분리... -->
+
+	<!-- 1명 -->
+	<select id="getSelectOne" parameterType="String"
+		resultType="MemberDto">
+		SELECT * FROM MEMBER WHERE ID = #{id}
+	</select>
+
+	<!-- <select id="getMemberSelectOne" resultType="MemberDto" -->
+	<!-- parameterType="String"> -->
+	<!-- SELECT * FROM MEMBER WHERE ID = #{id} -->
+	<!-- </select> -->
+
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="MemberDto">
+		INSERT INTO MEMBER
+		VALUES (SEQ_MEMBER.NEXTVAL, #{id}, #{password}, #{name}, #{email},
+		#{phone}, #{zipCode}, #{address}, SYSDATE)
+	</insert>
+
+	<!-- 회원탈퇴 -->
+	<delete id="deleteMember" parameterType="MemberDto">
+		DELETE FROM MEMBER WHERE
+		ID = #{id} AND PASSWORD = #{password}
+	</delete>
+
+	<!-- delete, update, insert는 따로 resultType이 없다 정수를 리턴해준다 -->
+	<!-- <delete id="deleteMember" parameterType="MemberDto"> -->
+	<!-- DELETE FROM MEMBER WHERE -->
+	<!-- ID = #{id} AND PASSWORD = #{password} -->
+	<!-- </delete> -->
+
+	<!-- 업데이트 -->
+	<update id="updateMember" parameterType="MemberDto">
+		UPDATE MEMBER SET NAME =
+		#{name}, EMAIL = #{email}, PHONE = #{phone}, ZIPCODE = #{zipCode},
+		ADDRESS =
+		#{address} WHERE ID = #{id} AND PASSWORD = #{password}
+	</update>
+
+	<!-- id 중복검사 -->
+	<select id="idCheck" parameterType="String" resultType="Integer">
+		SELECT
+		COUNT(*) AS TOTAL FROM MEMBER WHERE ID = #{id}
+	</select>
+
+	<!-- <select id="idCheck" parameterType="String" resultType="Integer"> -->
+	<!-- SELECT -->
+	<!-- COUNT(*) FROM MEMBER WHERE ID = #{id} -->
+	<!-- </select> -->
+
+	<!-- 로그인 -->
+	<select id="getLoggedMember" parameterType="MemberDto"
+		resultType="MemberDto">
+		SELECT * FROM MEMBER WHERE ID = #{id} AND PASSWORD =
+		#{password}
+	</select>
+
+
+	<!-- <select id="getLoggedMember" resultType="MemberDto" -->
+	<!-- parameterType="MemberDto"> -->
+	<!-- SELECT * FROM MEMBER WHERE ID = #{id} AND PASSWORD = -->
+	<!-- #{password} -->
+	<!-- </select> -->
+
+
+	<!-- 기본틀 -->
+	<!-- <select id="" resultType="" parameterType=""></select> -->
+	<!-- delete,update, insert 는 resultType 지정 없음... 정수 리턴 -->
+	<!-- <delete id="" parameterType=""></delete> -->
+	<!-- <update id="" parameterType=""></update> -->
+	<!-- <insert id="" parameterType="" re></insert> -->
+
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pjh.mybatis.member">
+
+	<select id="getMemberList" resultType="MemberDto">
+		SELECT * FROM MEMBER		
+	</select>
+	
+	<select id="getSelectOne" parameterType="" resultType="MemberDto">
+	</select>
+
+	<!-- 여기에 select / insert / delete / update -->
+	<!-- 변수 이름, 결과값 이름이 아니라 타입을 지정하는 것.. 주의하기... -->
+	<!-- <select id="" resultType="com.pjh.mode.MemberDto" parameterType=""></select> -->
+	<!-- <insert id="" parameterType=""></insert> -->
+	<!-- <delete id="" parameterType=""></delete> -->
+	<!-- <update id="" parameterType=""></update> -->
+
+</mapper>
